@@ -23,6 +23,7 @@ class Home extends BaseController
 		$results = $query->getResult();
 		$data = array();
 		$data['tabinfo'] = $results;
+		$data['age'] = 100;
 		if($floor == 1) {
 			switch($zone) {
 				case 1: return view('floor1_zone1_view', $data);

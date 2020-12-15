@@ -8,4 +8,5 @@ foreach ($tabinfo as $row)
         	echo $row->floor;
         }
   
+echo "<BR><BR> $age <BR><BR>";
 ?>
