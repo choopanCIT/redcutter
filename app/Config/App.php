@@ -21,7 +21,7 @@ class App extends BaseConfig
 	| environments.
 	|
 	*/
-	public $baseURL ='http://localhost:8888/redcutter/public';
+	public $baseURL ='http://localhost/redcutter/public';
 
 	/*
 	|--------------------------------------------------------------------------
