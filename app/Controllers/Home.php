@@ -38,4 +38,13 @@ class Home extends BaseController
 		}
 	
 	}
+
+	public function tablelist() {
+		$db = db_connect();
+		$query = $db->query("SELECT * FROM tableinfo WHERE status=2");
+		$results = $query->getResult();
+		$data = array();
+		$data['tabinfo'] = $results;
+		return view('tablelist_view', $data);
+	}
 }

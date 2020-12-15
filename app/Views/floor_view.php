@@ -23,5 +23,7 @@
 <a href='<?php echo site_url('home/floor2'); ?>' class="btn btn-info btn-block">ชั้น 2</a>
 <br><br><br>
 <center>
-<button type="button" class="btn btn-success"><i class="fas fa-search"></i>&nbsp; ค้นหารายชื่อผู้จองโต๊ะ</button>
+<a href='<?php echo site_url('home/tablelist'); ?>' class="btn btn-success"><i class="fas fa-search"></i>&nbsp; ค้นหารายชื่อผู้จองโต๊ะ</a>
 </center>
+</body>
+</html>
