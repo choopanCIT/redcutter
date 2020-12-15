@@ -24,7 +24,8 @@
 
 			<div class="col-7" id="front-indicator">STAGE</div>
 			<div class="row justify-content-center">
-		    <div class="col-1 d-flex justify-content-center justify-content-sm-center" id="Zone2" onclick="location.href='zone1';">ZONE1</div>
+
+		    <div class="col-1 d-flex justify-content-center justify-content-sm-center" id="Zone2" onclick="location.href='<?php echo site_url('home/tablelayout/1/1'); ?>';">ZONE1</div>
 			<div class="col-7">
 				<div class="row justify-content-around">
 					<div class="col-2 col-sm d-flex justify-content-center justify-content-md-center" id="Zone1" onclick="location.href='zone2';">ZONE2</div>
