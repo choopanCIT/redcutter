@@ -26,26 +26,54 @@ margin-top: 10px; text-align: center;}
 		padding: 17.35%;
 	}
 }
-
-#vertical-text{
-	background-color: #d6d6d6;
-	color: #000000;
-	padding: 35px;
-	margin-left: 2px;
-	margin-top: 8px;
-	border-radius: 5px;
-	writing-mode: vertical-rl;
-	display: inline-block;
+@media only screen and (max-width: 10000px) {
+	#vertical-text{
+		background-color: #d6d6d6;
+		color: #000000;
+		padding: 4%;
+		margin-left: 2px;
+		margin-top: 8px;
+		border-radius: 5px;
+		writing-mode: vertical-rl;
+		display: inline-block;
+	}
 }
+@media only screen and (max-width: 600px) {
+	#vertical-text{
+		background-color: #d6d6d6;
+		color: #000000;
+		padding: 8%;
+		margin-left: 2px;
+		margin-top: 8px;
+		border-radius: 5px;
+		writing-mode: vertical-rl;
+		display: inline-block;
+	}
+}
+
+@media only screen and (max-width: 10000px) {
 #ZoneBar{
 	background-color: #d6d6d6;
 	color: #000000;
-	padding: 35px;
+	padding: 4%;
 	margin-left: 2px;
 	margin-top: 8px;
 	border-radius: 5px;
 	writing-mode: vertical-rl;
 	display: inline-block;
+	}
+}
+@media only screen and (max-width: 600px) {
+#ZoneBar{
+	background-color: #d6d6d6;
+	color: #000000;
+	padding: 8%;
+	margin-left: 2px;
+	margin-top: 8px;
+	border-radius: 5px;
+	writing-mode: vertical-rl;
+	display: inline-block;
+	}
 }
 #Zonegreen{
 	background-color: #b0dbc2;
@@ -68,7 +96,7 @@ margin-top: 10px; text-align: center;}
 	padding: 1%;
 	border-radius: 5px;
 }
-@media only screen and (max-width: 1600px) {
+@media only screen and (max-width: 10000px) {
    #Zone1 {
 		background-color: #f0d399;
 	 	color: #000000;
@@ -83,7 +111,7 @@ margin-top: 10px; text-align: center;}
    #Zone1 {
 		background-color: #f0d399;
 	 	color: #000000;
-	 	padding:15%;
+	 	padding:14%;
 	 	margin-left: 2px;
 	   margin-top: 8px;
 	 	border-radius: 5px;
@@ -105,26 +133,52 @@ margin-top: 10px; text-align: center;}
 #Zone2:hover {
   background-color: #c9b17f;
 }
-#Zone3{
-	background-color:#e48a86;
-	color: #000000;
-	padding: 30px;
-	margin-left: 2px;
-  margin-top: 6px;
-	border-radius: 5px;
-	cursor: pointer;
+@media only screen and (max-width: 10000px) {
+	#Zone3{
+		background-color:#e48a86;
+		color: #000000;
+		padding:5%;
+		margin-left: 2px;
+	margin-top: 6px;
+		border-radius: 5px;
+		cursor: pointer;
+	}
+}
+@media only screen and (max-width: 600px) {
+	#Zone3{
+		background-color:#e48a86;
+		color: #000000;
+		padding:9%;
+		margin-left: 2px;
+	    margin-top: 6px;
+		border-radius: 5px;
+		cursor: pointer;
+	}
 }
 #Zone3:hover {
   background-color: #bd716d;
 }
-#Zone4{
-	background-color: #e48a86;
-	color: #000000;
-	padding: 10%;
-	margin-left: 2px;
-  margin-top: 20px;
-	border-radius: 5px;
-	cursor: pointer;
+@media only screen and (max-width: 10000px) {
+	#Zone4{
+		background-color: #e48a86;
+		color: #000000;
+		padding: 5%;
+		margin-left: 2px;
+	margin-top: 20px;
+		border-radius: 5px;
+		cursor: pointer;
+	}
+}
+@media only screen and (max-width: 600px) {
+	#Zone4{
+		background-color: #e48a86;
+		color: #000000;
+		padding: 9%;
+		margin-left: 2px;
+	margin-top: 20px;
+		border-radius: 5px;
+		cursor: pointer;
+	}
 }
 #Zone4:hover {
   background-color: #bd716d;
@@ -265,7 +319,7 @@ margin-top: 10px; text-align: center;}
    #Zone5-1 {
 		background-color: #b0dbc2;
  	 	color: #000000;
- 	 	padding: 8%;
+ 	 	padding: 3%;
 	 	margin-left: 2px;
 	   margin-top: 8px;
 	 	border-radius: 5px;
@@ -276,7 +330,7 @@ margin-top: 10px; text-align: center;}
    #Zone5-1 {
 		background-color: #b0dbc2;
 	 	color: #000000;
-	 	padding: 8%;
+	 	padding: 4%;
 	 	margin-left: 2px;
 	   margin-top: 8px;
 	 	border-radius: 5px;
@@ -284,6 +338,31 @@ margin-top: 10px; text-align: center;}
    }
 }
 #Zone5-1:hover {
+  background-color: #93baa3;
+}
+@media only screen and (max-width: 1600px) {
+   #Zone5-2 {
+		background-color: #b0dbc2;
+ 	 	color: #000000;
+ 	 	padding: 6%;
+	 	margin-left: 2px;
+	   margin-top: 8px;
+	 	border-radius: 5px;
+	 	cursor: pointer;
+   }
+}
+@media only screen and (max-width: 600px) {
+   #Zone5-2 {
+		background-color: #b0dbc2;
+	 	color: #000000;
+	 	padding: 7%;
+	 	margin-left: 2px;
+	   margin-top: 8px;
+	 	border-radius: 5px;
+	 	cursor: pointer;
+   }
+}
+#Zone5-2:hover {
   background-color: #93baa3;
 }
 @media only screen and (max-width: 1600px) {

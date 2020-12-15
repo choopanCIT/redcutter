@@ -24,44 +24,41 @@
 
 			<div class="col-7" id="front-indicator">STAGE</div>
 			<div class="row justify-content-center">
-
 		    <div class="col-1 d-flex justify-content-center justify-content-sm-center" id="Zone2" onclick="location.href='<?php echo site_url('home/tablelayout/1/1'); ?>';">ZONE1</div>
 			<div class="col-7">
 				<div class="row justify-content-around">
-					<div class="col-2 col-sm d-flex justify-content-center justify-content-md-center" id="Zone1" onclick="location.href='zone2';">ZONE2</div>
-					<div class="col-4 col-sm d-flex justify-content-center justify-content-md-center" id="Zone1" onclick="location.href='zone3';">ZONE3</div>
-					<div class="col-2 col-sm d-flex justify-content-center justify-content-md-center" id="Zone1" onclick="location.href='zone4';">ZONE4</div>
+					<div class="col-2 col-sm d-flex justify-content-center justify-content-md-center" id="Zone1" onclick="location.href='Zone2.html';">ZONE2</div>
+					<div class="col-4 col-sm d-flex justify-content-center justify-content-md-center" id="Zone1" onclick="location.href='Zone3.html';">ZONE3</div>
+					<div class="col-2 col-sm d-flex justify-content-center justify-content-md-center" id="Zone1" onclick="location.href='Zone4.html';">ZONE4</div>
 				</div>
 				<div class="row">
-					<div class="col d-flex justify-content-center justify-content-md-center" id="Zone1" onclick="location.href='zone5';">ZONE5</div>
+					<div class="col d-flex justify-content-center justify-content-md-center" id="Zone1" onclick="location.href='Zone5.html';">ZONE5</div>
 				</div>
 		</div>
-				<div class="col-1 d-flex justify-content-center justify-content-sm-center" id="Zone2" onclick="location.href='zone6';">ZONE6</div>
+				<div class="col-1 d-flex justify-content-center justify-content-sm-center" id="Zone2" onclick="location.href='Zone6.html';">ZONE6</div>
 				<div class="w-100"></div>
 				<div class="col-1 d-flex justify-content-center justify-content-sm-center" id="vertical-text">ENTRANCE</div>
 			<div class="col-7">
 				<div class="row">
-					<div class="col col-sm d-flex justify-content-center justify-content-md-center" id="Zone3" onclick="location.href='zone7';">ZONE7</div>
+					<div class="col col-sm d-flex justify-content-center justify-content-md-center" id="Zone3" onclick="location.href='Zone7.html';">ZONE7</div>
 				</div>
 				<div class="row">
-					<div class="col d-flex justify-content-center justify-content-md-center" id="Zone4" onclick="location.href='zone8';">ZONE8</div>
+					<div class="col d-flex justify-content-center justify-content-md-center" id="Zone4" onclick="location.href='Zone8.html';">ZONE8</div>
 				</div>
 		</div>
 				<div class="col-1 d-flex justify-content-center justify-content-sm-center" id="ZoneBar">BAR</div>
 		 </div>
 		 <div class="row justify-content-center">
-		 <div class="col-4 d-flex justify-content-center justify-content-md-center" id="Zone5">BAR</div>
+		 <div class="col-2 d-flex justify-content-center justify-content-md-center" id="Zone5">BAR</div>
 	 </div>
 		 <div class="w-100"></div>
 		 <div class="row justify-content-center">
 		 <div class="col-8" id="detail">
 			 <div class="row row justify-content-center">
-			 <div class="col-1" id="Zonegreen"></div><span>&nbsp 10 ที่นั่ง&nbsp</span>
 			 <div class="col-1" id="Zoneyellow"></div><span>&nbsp 10 ที่นั่ง&nbsp</span>
 			 <div class="col-1" id="Zonered"></div><span> &nbsp 6 ที่นั่ง&nbsp</span>
 		 </div>
 	 </div>
-		 </div>
 		 </div>
 	</div>
 
