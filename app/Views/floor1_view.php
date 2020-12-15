@@ -16,7 +16,7 @@
 <div class="jumbotron text-center">
   <h2>The red cutter day</h2>
   <p>The way walk you home.</p>
-  <a href="/reservetables" class="btn btn-primary">กลับหน้าหลัก</a></p>
+  <a href="<?php echo site_url('home'); ?>" class="btn btn-primary">กลับหน้าหลัก</a></p>
 </div>
 
 <div class="container">
