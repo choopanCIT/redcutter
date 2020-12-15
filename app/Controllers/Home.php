@@ -29,6 +29,8 @@ class Home extends BaseController
 				case 1: return view('floor1_zone1_view', $data);
 				case 2: return view('floor1_zone2_view', $data);
 				case 3: return view('floor1_zone3_view', $data);
+				case 4: return view('floor1_zone4_view', $data);
+
 			}
 		
 		} else {
