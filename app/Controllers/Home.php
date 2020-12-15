@@ -27,7 +27,7 @@ class Home extends BaseController
 			switch($zone) {
 				case 1: return view('floor1_zone1_view', $data);
 				case 2: return view('floor1_zone2_view', $data);
-				
+				case 3: return view('floor1_zone3_view', $data);
 			}
 		
 		} else {
