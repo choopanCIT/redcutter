@@ -27,23 +27,23 @@
 		    <div class="col-1 d-flex justify-content-center justify-content-sm-center" id="Zone2" onclick="location.href='<?php echo site_url('home/tablelayout/1/1'); ?>';">ZONE1</div>
 			<div class="col-7">
 				<div class="row justify-content-around">
-					<div class="col-2 col-sm d-flex justify-content-center justify-content-md-center" id="Zone1" onclick="location.href='Zone2.html';">ZONE2</div>
-					<div class="col-4 col-sm d-flex justify-content-center justify-content-md-center" id="Zone1" onclick="location.href='Zone3.html';">ZONE3</div>
-					<div class="col-2 col-sm d-flex justify-content-center justify-content-md-center" id="Zone1" onclick="location.href='Zone4.html';">ZONE4</div>
+					<div class="col-2 col-sm d-flex justify-content-center justify-content-md-center" id="Zone1" onclick="location.href='<?php echo site_url('home/tablelayout/1/2'); ?>';">ZONE2</div>
+					<div class="col-4 col-sm d-flex justify-content-center justify-content-md-center" id="Zone1" onclick="location.href='<?php echo site_url('home/tablelayout/1/3'); ?>';">ZONE3</div>
+					<div class="col-2 col-sm d-flex justify-content-center justify-content-md-center" id="Zone1" onclick="location.href='<?php echo site_url('home/tablelayout/1/4'); ?>';">ZONE4</div>
 				</div>
 				<div class="row">
-					<div class="col d-flex justify-content-center justify-content-md-center" id="Zone1" onclick="location.href='Zone5.html';">ZONE5</div>
+					<div class="col d-flex justify-content-center justify-content-md-center" id="Zone1" onclick="location.href='<?php echo site_url('home/tablelayout/1/5'); ?>';">ZONE5</div>
 				</div>
 		</div>
-				<div class="col-1 d-flex justify-content-center justify-content-sm-center" id="Zone2" onclick="location.href='Zone6.html';">ZONE6</div>
+				<div class="col-1 d-flex justify-content-center justify-content-sm-center" id="Zone2" onclick="location.href='<?php echo site_url('home/tablelayout/1/6'); ?>';">ZONE6</div>
 				<div class="w-100"></div>
 				<div class="col-1 d-flex justify-content-center justify-content-sm-center" id="vertical-text">ENTRANCE</div>
 			<div class="col-7">
 				<div class="row">
-					<div class="col col-sm d-flex justify-content-center justify-content-md-center" id="Zone3" onclick="location.href='Zone7.html';">ZONE7</div>
+					<div class="col col-sm d-flex justify-content-center justify-content-md-center" id="Zone3" onclick="location.href='<?php echo site_url('home/tablelayout/1/7'); ?>';">ZONE7</div>
 				</div>
 				<div class="row">
-					<div class="col d-flex justify-content-center justify-content-md-center" id="Zone4" onclick="location.href='Zone8.html';">ZONE8</div>
+					<div class="col d-flex justify-content-center justify-content-md-center" id="Zone4" onclick="location.href='<?php echo site_url('home/tablelayout/1/8'); ?>';">ZONE8</div>
 				</div>
 		</div>
 				<div class="col-1 d-flex justify-content-center justify-content-sm-center" id="ZoneBar">BAR</div>

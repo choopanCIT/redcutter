@@ -1,52 +1,20 @@
 (function($) {
   var total=0,seat=[];exits=0;dataSeat=[];
-	$.fn.seatcheack = function (zone) {
-    $(this).css("opacity", "0.4");
-    $(this).off('click');
-
-   $.get("http://localhost:3000/db",{ zoneid: zone },function(data, status){
-        for (var i = 0; i < data['seatNumber'].length; i++) {
-          dataSeat.push(data['seatNumber'][i]);
-        }
-    });
-     if(dataSeat.length > 0){
-       for (var i = 0; i < this.length; i++) {
-            var a = 0;
-            dataSeat.forEach((item, index) => {
-             if($(this[i]).text() == item){
-               $(this[i]).css("opacity", "0.4");
-               $(this[i]).off('click');
-               a +=1;
-             }
-             else{
-               if(dataSeat.length-1 == index && a == 0){
-                 $(this[i]).css("opacity", "1");
-                 $(this[i]).on('click');
-
-                 $(this[i]).click(function(){
-                   console.log(this);
-                   $("#checkout").attr("data-target","#ModalCenter");
-                   $(this).css("opacity", "0.4");
-                   $(this).off('click');
-                   appendtable($(this));
-                })
-               }
-             }
-            });
-       }
-     }else{
-       $(this).css("opacity", "1");
-       $(this).on('click');
-
-       $(this).click(function(){
-         console.log(this);
-         $("#checkout").attr("data-target","#ModalCenter");
-         $(this).css("opacity", "0.4");
-         $(this).off('click');
-         appendtable($(this));
-      })
-     }
-	}
+	$.fn.seatconfirm = function (zone) {
+     $(this).off('click');
+     $(this).css('background-color', '#f67279');
+  }
+  $.fn.seatwaitconfirm = function (zone) {
+     $(this).off('click');
+     $(this).css('background-color', '#fcde60');
+  }
+  $.fn.seatavailable = function (pice) {
+    $(this).click(function(){
+      $(this).css("opacity", "0.4");
+      $(this).off('click');
+      appendtable($(this),pice);
+   })
+  }
 	$.fn.getParameter = function (setup) {
 		var sPageURL = window.location.search.substring(1).split('=');
 		var param = null;
@@ -148,8 +116,8 @@
    });
   };
 
-  function appendtable(param) {
-  seat.push($(param).text());
+  function appendtable(param,pice) {
+  //seat.push($(param).text());
   var li = document.createElement("li");  // Create with DOM
   li.className = "list-group-item d-flex justify-content-between lh-condensed";
   var div = document.createElement("div");
@@ -157,10 +125,10 @@
   div.innerHTML = "<b>Seat</b> "+$(param).text();
   var span = document.createElement("span");
   span.className = "text-muted";
-  span.innerHTML = "฿12500"//params
+  span.innerHTML = "฿"+pice;
   li.append(div,span);
   $("#cart").prepend(li);
-  total+=12500;
+  total+=parseInt(pice);
   $(".total").text("฿"+total);
   $("#total").text("฿"+total);
 }
