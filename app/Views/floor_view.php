@@ -19,8 +19,8 @@
 
 <div class="container">
 <h4>จองโต๊ะ</h4>
-<a href='reservetables/floor1' class="btn btn-info btn-block">ชั้น 1</a>
-<a href='reservetables/floor2' class="btn btn-info btn-block">ชั้น 2</a>
+<a href='<?php echo site_url('home/floor1'); ?>' class="btn btn-info btn-block">ชั้น 1</a>
+<a href='<?php echo site_url('home/floor2'); ?>' class="btn btn-info btn-block">ชั้น 2</a>
 <br><br><br>
 <center>
 <button type="button" class="btn btn-success"><i class="fas fa-search"></i>&nbsp; ค้นหารายชื่อผู้จองโต๊ะ</button>
