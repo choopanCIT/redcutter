@@ -19,6 +19,10 @@
 	<a href="<?php echo site_url('home'); ?>" class="btn btn-primary">กลับหน้าหลัก</a></p>
 	</div>
 		<div class="container">
+		<center>
+		<h6> จองโต๊ะ (ชั้น 1) zone1  : กรุณาเลือกโต๊ะเพื่อจอง</h6>
+		<h7></h7>
+		</center><br>
 			<div class="row justify-content-center" id="content">
 		 <div class="col-sm-6">
 			<div class="col-12">
@@ -36,7 +40,7 @@
 	<div class="col-12">
 		<div class="row justify-content-center">
 			<div class="col-5 col-sm d-flex justify-content-center justify-content-md-center" id="Zone1-1" name = "128">128</div>
-			<div class="col-5 col-sm d-flex justify-content-center justify-content-md-center" id="Zone1-1" name = "1311">125</div>
+			<div class="col-5 col-sm d-flex justify-content-center justify-content-md-center" id="Zone1-1" name = "125">125</div>
 		</div>
 </div>
 <div class="col-12">
@@ -93,8 +97,8 @@
 		 <!-- Modal -->
 		 <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 		 <div class="modal-dialog modal-dialog-centered" role="document">
-		
-		 
+
+
 		 <div class="modal-content">
 		 	 <div class="modal-header">
 		 		 <h5 class="modal-title" id="exampleModalLongTitle">ข้อมูลผู้จอง</h5>
@@ -103,9 +107,9 @@
 		 		 </button>
 		 	 </div>
 		 	 <div class="modal-body">
-		<form action='<?php echo site_url('home/checkout'); ?>' method="POST">	
+		<form action='<?php echo site_url('home/checkout'); ?>' method="POST">
 		<input type="hidden" name="seats" id="seats">
-		 <div class="form-group">
+		 <div class="form-group" id="datauser">
 			<p></p>
 		  <label for="recipient-name" class="col-form-label">ชื่อ-นามสกุล:</label>
 		  <input type="text" class="form-control" id="recipient-name" name="name" required>
@@ -115,7 +119,14 @@
 			<input type="text" class="form-control" id="recipient-phone" name="phone" required>
 			<label for="recipient-name" class="col-form-label">Email:</label>
 			<input type="text" class="form-control" id="recipient-surename" name="email" required>
-			</div>		 
+			</div>
+			<div class="form-group" id="user">
+			 <p></p>
+			 <label for="recipient-name" class="col-form-label">ชื่อ-นามสกุล:</label>
+			 <input type="text" class="form-control" id="name">
+			 <label for="recipient-name" class="col-form-label">รุ่น:</label>
+			 <input type="text" class="form-control" id="id">
+			 </div>
 		 	 </div>
 		 	 <div class="modal-footer">
 		 		 <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
@@ -127,35 +138,34 @@
 		 </div>
 		 	<script>
 		 	$(document).ready(function() {
-				 //$('div[id*="Zone"]').seatcheack("1");
-				$("#checkout").attr("data-target","#ModalCenter");
+				$('#checkout').checkout({});
 		 		$('#clear').click(function(){
 		 			location.reload(true);
 		 		});
-				$('#submit').click(function(){
-					var results= $(this).submitdata({});
-					console.log(results);
-				});
 			});
 		 	</script>
 		<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
 		<script src="<?php echo base_url('seatchart/jquery.seat-charts.js')?>"></script>
-		<?php 
+		<?php
 
 foreach ($tabinfo as $row)
-		{
+		{	
+			echo "<script>
+				     $('h7').text(\"โต๊ะราคา: \"+$row->price+\"บาท\");
+					 </script>";
+					 
             if ($row->status == 2) {
 				echo "<script>
-				     $('div[name=\"$row->id\"]').seatconfirm({});
+				     $('div[name=\"$row->id\"]').seatconfirm(\"$row->name\",\"$row->groupname\");
                      </script>";
 			}
 			if ($row->status == 1 and $row->numday_pass == 0) {
 				echo "<script>
-				     $('div[name=\"$row->id\"]').seatwaitconfirm({});
+				     $('div[name=\"$row->id\"]').seatwaitconfirm(\"$row->name\",\"$row->groupname\");
                      </script>";
             }
 			if ($row->status == 0 or ($row->status == 1 and $row->numday_pass > 1)) {
-				
+
 				//echo $row->id;
 				echo "<script>
 				     $('div[name=\"$row->id\"]').seatavailable($row->price);

@@ -21,6 +21,10 @@
 	</div>
 		<script src="jquery.seat-charts.js"></script>
 		<div class="container">
+		<center>
+		<h6> จองโต๊ะ (ชั้น 1) zone8  : กรุณาเลือกโต๊ะเพื่อจอง</h6>
+		<h7></h7>
+		</center><br>
 			<div class="row justify-content-center">
 				<div class="col-12 col-sm-8">
 					<div class="col-12 col-sm-12">
@@ -76,76 +80,85 @@
 	 </div>
 	 <!-- Modal -->
 	 <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-	 <div class="modal-dialog modal-dialog-centered" role="document">
-		<div class="modal-content">
-		 <div class="modal-header">
-			 <h5 class="modal-title" id="exampleModalLongTitle">ข้อมูลผู้จอง</h5>
-			 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				 <span aria-hidden="true">&times;</span>
-			 </button>
-		 </div>
-		 <div class="modal-body">
-			 <form>
-	 <div class="form-group">
-		<p></p>
-		<label for="recipient-name" class="col-form-label">ชื่อ:</label>
-		<input type="text" class="form-control" id="recipient-name">
-		<label for="recipient-name" class="col-form-label">นามสกุล:</label>
-		<input type="text" class="form-control" id="recipient-surename">
-		<label for="recipient-name" class="col-form-label">รหัสรุ่น:</label>
-		<input type="text" class="form-control" id="recipient-id">
-		<label for="recipient-name" class="col-form-label">เบอร์โทร:</label>
-		<input type="text" class="form-control" id="recipient-phone">
-	 </div>
-	 </form>
-		 </div>
-		 <div class="modal-footer">
-			 <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
-			 <button type="button" class="btn btn-primary" id="submit">ยืนยันการจอง</button>
+		 <div class="modal-dialog modal-dialog-centered" role="document">
+
+
+		 <div class="modal-content">
+		 	 <div class="modal-header">
+		 		 <h5 class="modal-title" id="exampleModalLongTitle">ข้อมูลผู้จอง</h5>
+		 		 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		 			 <span aria-hidden="true">&times;</span>
+		 		 </button>
+		 	 </div>
+		 	 <div class="modal-body">
+		<form action='<?php echo site_url('home/checkout'); ?>' method="POST">
+		<input type="hidden" name="seats" id="seats">
+		 <div class="form-group" id="datauser">
+			<p></p>
+		  <label for="recipient-name" class="col-form-label">ชื่อ-นามสกุล:</label>
+		  <input type="text" class="form-control" id="recipient-name" name="name" required>
+			<label for="recipient-name" class="col-form-label">รุ่น (เช่น PET 06):</label>
+			<input type="text" class="form-control" id="recipient-id" name="groupname" required>
+			<label for="recipient-name" class="col-form-label">เบอร์โทร:</label>
+			<input type="text" class="form-control" id="recipient-phone" name="phone" required>
+			<label for="recipient-name" class="col-form-label">Email:</label>
+			<input type="text" class="form-control" id="recipient-surename" name="email" required>
 			</div>
-	</div>
-</div>
-</div>
-	<script>
-	$(document).ready(function() {
-		//$('div[id*="Zone"]').seatcheack("1");
-	   $("#checkout").attr("data-target","#ModalCenter");
-		$('#clear').click(function(){
-			location.reload(true);
-		});
-	   $('#submit').click(function(){
-		   var results= $(this).submitdata({});
-		   console.log(results);
-	   });
-   });
-	</script>
-<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-<script src="<?php echo base_url('seatchart/jquery.seat-charts.js')?>"></script>
-<?php 
-//print_r($tabinfo);
+			<div class="form-group" id="user">
+			 <p></p>
+			 <label for="recipient-name" class="col-form-label">ชื่อ-นามสกุล:</label>
+			 <input type="text" class="form-control" id="name">
+			 <label for="recipient-name" class="col-form-label">รุ่น:</label>
+			 <input type="text" class="form-control" id="id">
+			 </div>
+		 	 </div>
+		 	 <div class="modal-footer">
+		 		 <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
+		 		 <button  class="btn btn-primary" id="submit">ยืนยันการจอง</button>
+		 	 </div>
+		  </div>
+	</form>
+		 </div>
+		 </div>
+		 	<script>
+		 	$(document).ready(function() {
+				$('#checkout').checkout({});
+		 		$('#clear').click(function(){
+		 			location.reload(true);
+		 		});
+			});
+		 	</script>
+		<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script src="<?php echo base_url('seatchart/jquery.seat-charts.js')?>"></script>
+		<?php
 
 foreach ($tabinfo as $row)
-{
-   if ($row->status == 2) {
-	   echo "<script>
-			$('div[name=\"$row->id\"]').seatconfirm({});
-			</script>";
-   }
-   if ($row->status == 1) {
-	   echo "<script>
-			$('div[name=\"$row->id\"]').seatwaitconfirm({});
-			</script>";
-   }
-   if ($row->status == 0) {
-	   //echo $row->id;
-	   echo "<script>
-			$('div[name=\"$row->id\"]').seatavailable($row->price);
-			</script>";
-   }
-   //echo $row->id;
-   //echo $row->zone;
-   //echo $row->floor;
-}
+		{	
+			echo "<script>
+				     $('h7').text(\"โต๊ะราคา: \"+$row->price+\"บาท\");
+					 </script>";
+					 
+            if ($row->status == 2) {
+				echo "<script>
+				     $('div[name=\"$row->id\"]').seatconfirm(\"$row->name\",\"$row->groupname\");
+                     </script>";
+			}
+			if ($row->status == 1 and $row->numday_pass == 0) {
+				echo "<script>
+				     $('div[name=\"$row->id\"]').seatwaitconfirm(\"$row->name\",\"$row->groupname\");
+                     </script>";
+            }
+			if ($row->status == 0 or ($row->status == 1 and $row->numday_pass > 1)) {
+
+				//echo $row->id;
+				echo "<script>
+				     $('div[name=\"$row->id\"]').seatavailable($row->price);
+                     </script>";
+            }
+        	//echo $row->id;
+        	//echo $row->zone;
+        	//echo $row->floor;
+        }
 ?>
-</body>
+	</body>
 </html>

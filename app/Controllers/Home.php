@@ -107,27 +107,77 @@ class Home extends BaseController
 		$request = service('request');
 		$seats = $request->getVar('seats');
 		$seat = explode(",", $seats);
+		
 		//Only extract data -> send to payment_view
 		$numseat = count($seat);
+		$data = array();
+
 		if($numseat > 1) {
 			$db = db_connect();
-			$name = $request->getVar('name');
-			$groupname = $request->getVar('groupname');
-			$phone = $request->getVar('phone');
-			$email = $request->getVar('email');
+			$data['name'] = $request->getVar('name');
+			$data['groupname'] = $request->getVar('groupname');
+			$data['phone'] = $request->getVar('phone');
+			$data['email'] = $request->getVar('email');
 
+			$seatno = array();
+			$seatprice = array();
+			$floors = array();
+			$zones = array();
 			for($i = 1; $i < $numseat; $i++) {
 				//Check if seat is still available
-				$query = $db->query
+				$query = $db->query("SELECT price, floor, zone from tableinfo WHERE id = " . $seat[$i]);
+				$results = $query->getResult();	
+				$seatno[$i - 1] = $seat[$i];		
+				$seatprice[$i - 1] = $results[0]->price;
+				$floors[$i - 1] = $results[0]->floor;
+				$zones[$i - 1] = $results[0]->zone;
 			}
+			$data['seat'] = $seatno;
+			$data['seatprice'] = $seatprice;
+			$data['floor'] = $floors;
+			$data['zone'] = $zones;
+			
+			
+			return view('payment_view', $data);
 
+		} else {
+			die ("Error");
+		}		
+	}
+
+
+	public function confirm(){
+		$request = service('request');		
+		$data = array();
+		$data['seats'] = unserialize($request->getVar('seats'));
+		$data['seatprice'] = unserialize($request->getVar('seatprice'));
+		$data['name'] = $request->getVar('name');
+		$data['groupname'] = $request->getVar('groupname');
+		$data['phone'] = $request->getVar('phone');
+		$data['email'] = $request->getVar('email');
+
+		//CHECK before SAVE
+		
+		$db = db_connect();
+
+		$numseat = count($data['seats']);
+		//Check
+		for($i = 0; $i < $numseat; $i++) {
+			$query = $db->query("SELECT status, DATEDIFF(NOW(), resvtime) as daypass from tableinfo WHERE id = " . $data['seats'][$i]);
+			$results = $query->getResult();	
+			if(!($results[0]->status == 0 or ($results[0]->status == 1 and $results[0]->daypass > 0))) {
+				die ("มีคนแย่งที่ไปเเล้ว");
+			}
 		}
-		echo "Seat =" . count($seat) . "<br>";
-
-
-		foreach($seat as $s) {
-			echo $s . "<BR>";
-		}
-
+		
+		//Save
+		for($i = 0; $i < $numseat; $i++) {
+			$sql = "UPDATE tableinfo SET name='" . $data['name'] . "', resvtime=NOW(), groupname='" . $data['groupname'] . "', email ='". $data['email'] ."', phone='" . $data['phone'] . "', status = 1 WHERE id = " . $data['seats'][$i];
+			$query = $db->query($sql);
+			$results = $query->getResult();	
+		}		
+		
+		//TODO: send email information
+		return view('confirm_done_view', $data);
 	}
 }

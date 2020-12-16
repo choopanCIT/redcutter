@@ -2,7 +2,7 @@
 
 use CodeIgniter\HTTP\IncomingRequest;
 
-//TODO : Add condition status = 1 and now()-resv_time < 24h
+
 class Admin extends BaseController
 {
 	public function index()
@@ -67,6 +67,8 @@ class Admin extends BaseController
 		}
 	}
 
+
+	//TODO : Add condition status = 1 and now()-resv_time < 24h
 	public function home() {
 			// Get summary
 			$data = array();
@@ -76,13 +78,24 @@ class Admin extends BaseController
 			$data['earn'] = 0;
 
 			$db = db_connect();
+			$query = $db->query("SELECT * FROM tableinfo WHERE status = 1 and DATEDIFF(NOW(), resvtime) = 0");
+			$results = $query->getResult();
+			$data['reserved_list'] = $results;
+			$realreserved = count($data['reserved_list']);
+
+			$query = $db->query("SELECT * FROM tableinfo WHERE status = 1 and DATEDIFF(NOW(), resvtime) > 0");
+			$results = $query->getResult();			
+			$overduereserved = count($results);
+			
+
+
 			$query = $db->query("SELECT status, count(*) as numtable FROM tableinfo group by status");
 			$results = $query->getResult();
 			foreach( $results as $row) {
 				if($row->status == 0)
-					$data['free'] = $row->numtable;
+					$data['free'] = $row->numtable + $overduereserved;
 				elseif($row->status == 1)
-					$data['reserved'] = $row->numtable;
+					$data['reserved'] = $realreserved;
 				else
 					$data['paid'] = $row->numtable;
 			}
@@ -91,9 +104,6 @@ class Admin extends BaseController
 			$results = $query->getResult();
 			$data['earn'] = $results[0]->total_earn;
 
-			$query = $db->query("SELECT * FROM tableinfo WHERE status = 1");
-			$results = $query->getResult();
-			$data['reserved_list'] = $results;
 
 			$query = $db->query("SELECT * FROM tableinfo WHERE status = 2");
 			$results = $query->getResult();

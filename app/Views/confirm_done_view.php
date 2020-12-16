@@ -20,16 +20,12 @@
   <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.6/css/responsive.bootstrap4.min.css">
 
   </head>
-	<body>
-	<div class="jumbotron text-center">
-	<h2>The red cutter day</h2>
-	<p>The way walk you home.</p>
-	<a href="<?php echo site_url('home'); ?>" class="btn btn-primary">กลับหน้าหลัก</a></p>
-	</div>
-  <div class="container">
-  
-    <center>
-    <h4>ยืนยันข้อมูลการจอง</h4>
+<body>
+<div class="container">
+
+<center>
+<br>
+    <h4>บันทึกข้อมูลการจองเรียบร้อยแล้ว</h4>
 
     <table class="table table-bordered" style="width:90%">
         
@@ -45,20 +41,16 @@
         <thead>
             <tr>
                 <th>#โต๊ะ</th>
-                <th>ชั้น</th>
-                <th>โซน</th>
                 <th>ราคา</th>
             </tr>
         </thead>
         <tbody>
             <?php
-                $numreserved = count($seat);
+                $numreserved = count($seats);
                 $total_price = 0;
                 for($i = 0; $i < $numreserved; $i++) {
                   echo "<tr>";
-                  echo "<td>" . $seat[$i] . "</td>";                  
-                  echo "<td>" . $floor[$i] . "</td>";
-                  echo "<td>" . $zone[$i] . "</td>";
+                  echo "<td>" . $seats[$i] . "</td>";                  
                   echo "<td>" . $seatprice[$i] . "</td>";
                   echo "</tr>";
                   $total_price += $seatprice[$i];
@@ -67,20 +59,30 @@
             <tr><td colspan='4'><center>รวมยอดขำระ: <?php echo $total_price; ?> บาท</center></td></tr>
         </tbody>
     </table>
-    <form action="<?php echo site_url('home/confirm'); ?>" method="POST">
-      <input type="hidden" name="name" value="<?php echo $name; ?>">
-      <input type="hidden" name="groupname" value="<?php echo $groupname; ?>">
-      <input type="hidden" name="phone" value="<?php echo $phone; ?>">
-      <input type="hidden" name="email" value="<?php echo $email; ?>">
-      <input type="hidden" name="seats" value='<?php echo serialize($seat); ?>'>
-      <input type="hidden" name="seatprice" value='<?php echo serialize($seatprice); ?>'>
-
-      <button class="btn btn-lg btn-success">ยืนยันข้อมูลการจอง</button>
-    </form>
+    
+    <br>
+    <table  class="table table-bordered dt-responsive nowrap" style="width:90%"><tr><td>
+    &nbsp;&nbsp;&nbsp;&nbsp;ระบบได้จัดส่งข้อมูลการจองไปยัง Email ของท่านแล้ว กรุณาดำเนินการตามขั้นตอนดังนี้
+    <ul>
+    <li> บันทึกหน้าจอข้อมูลตารางการจองนี้ไว้ </li>
+    <li> กรุณาชำระเงินภายใน 24 ชั่วโมง ที่<br>    
+    <b>บัญชี:</b> <span class="text-primary">907-7-48515-0</span><br>
+      <b>ธนาคาร:</b> <span class="text-primary"> กรุงเทพ</span><br>
+      <b>สาขา:</b> <span class="text-primary"> ม. เทคโนโลยีพระจอมเกล้าพระนครเหนือ</span><br>
+      <b>ชื่อบัญชี:</b> <span class="text-primary"> นายสมิตร ส่งพิริยะกิจ, นายสุริยัณต์ ผู้อุตส่าห์ และนายชลธรรม์ ธรรมจารี</span>
+    </li>
+    <li> เพิ่ม LINE @citkmutnb<br>
+    <img src='<?php echo base_url("line.jpg")?>' class='img-fluid'>
+    </li>
+    <li> ส่งภาพข้อมูลการจองในหน้าจอนี้ พร้อมหลักฐานการชำระเงิน ไปยัง LINE @citkmutnb</li>
+    </ul>
+    </td></tr></table>
+    
+    <p class="text-danger"><b>หากท่านไม่ส่งหลักฐานการชำระเงินภายใน 24 ชั่วโมง  ระบบจะยกเลิกสถานะการจองโต๊ะ</b></p><br>
+    
+    <a href="<?php echo site_url('home'); ?>" class="btn btn-primary">กลับหน้าหลัก</a></p></center>
     
 
-    </center>
-  </div>
-  </body>
-</html>
-
+</div>
+</body>
+<html>
