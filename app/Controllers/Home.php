@@ -4,26 +4,71 @@ class Home extends BaseController
 {
 	public function index()
 	{
-		return view('floor_view');
+		$db = db_connect();
+		$query = $db->query("SELECT floor, count(*) as freetable FROM tableinfo WHERE status = 0 or (status = 1 and DATEDIFF(NOW(), resvtime) > 0) GROUP BY floor");
+		$results = $query->getResult();
+		
+		$data = array();
+		foreach ($results as $row) {
+			if ($row->floor == 1) {
+				$data['floor1_freetable'] = $row->freetable;
+			} else {
+				$data['floor2_freetable'] = $row->freetable;
+			}
+		}
+		
+		return view('floor_view', $data);
 	}
 
 	public function floor1()
 	{
-		return view('floor1_view');
+		$db = db_connect();
+		$query = $db->query("SELECT zone, count(*) as freetable FROM tableinfo WHERE floor = 1 and (status = 0 or (status = 1 and DATEDIFF(NOW(), resvtime) > 0)) GROUP BY zone");
+		$results = $query->getResult();
+		
+		$data = array();
+		foreach ($results as $row) {
+			switch($row->zone) {
+				case 1: $data['zone1_freetable'] = $row->freetable; break;
+				case 2: $data['zone2_freetable'] = $row->freetable; break;
+				case 3: $data['zone3_freetable'] = $row->freetable; break;
+				case 4: $data['zone4_freetable'] = $row->freetable; break;
+				case 5: $data['zone5_freetable'] = $row->freetable; break;
+				case 6: $data['zone6_freetable'] = $row->freetable; break;
+				case 7: $data['zone7_freetable'] = $row->freetable; break;
+				case 8: $data['zone8_freetable'] = $row->freetable; break;
+			}
+		}
+
+		return view('floor1_view', $data);
 	}
 
 	public function floor2()
 	{
-		return view('floor2_view');
+		$db = db_connect();
+		$query = $db->query("SELECT zone, count(*) as freetable FROM tableinfo WHERE floor = 2 and (status = 0 or (status = 1 and DATEDIFF(NOW(), resvtime) > 0)) GROUP BY zone");
+		$results = $query->getResult();
+		
+		$data = array();
+		foreach ($results as $row) {
+			switch($row->zone) {
+				case 1: $data['zone1_freetable'] = $row->freetable; break;
+				case 2: $data['zone2_freetable'] = $row->freetable; break;
+				case 3: $data['zone3_freetable'] = $row->freetable; break;
+				case 4: $data['zone4_freetable'] = $row->freetable; break;
+				case 5: $data['zone5_freetable'] = $row->freetable; break;
+				case 6: $data['zone6_freetable'] = $row->freetable; break;
+			}
+		}
+		return view('floor2_view', $data);
 	}
 
 	public function tablelayout($floor=1, $zone=1) {
 		$db = db_connect();
-		$query = $db->query("SELECT * FROM tableinfo WHERE zone=$zone and floor=$floor");
+		$query = $db->query("SELECT *, DATEDIFF(NOW(), resvtime) as numday_pass FROM tableinfo WHERE zone=$zone and floor=$floor");
 		$results = $query->getResult();
 		$data = array();
 		$data['tabinfo'] = $results;
-		$data['age'] = 100;
 		if($floor == 1) {
 			switch($zone) {
 				case 1: return view('floor1_zone1_view', $data);

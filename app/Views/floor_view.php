@@ -13,17 +13,27 @@
 <body>
 
 <div class="jumbotron text-center">
-  <h2>The red cutter day</h2>
-  <p>The way walk you home</p>
+  <h1>The red cutter day</h1>
+  <h5>The way walk you home</h5>
 </div>
 
 <div class="container">
 <h4>จองโต๊ะ</h4>
-<a href='<?php echo site_url('home/floor1'); ?>' class="btn btn-info btn-block">ชั้น 1</a>
-<a href='<?php echo site_url('home/floor2'); ?>' class="btn btn-info btn-block">ชั้น 2</a>
+<a href='<?php echo site_url('home/floor1'); ?>' class="btn btn-info btn-block">
+	<b>ชั้น 1</b><br>
+	(จำนวนโต๊ะว่าง : <?php echo $floor1_freetable; ?>)
+</a>
+<a href='<?php echo site_url('home/floor2'); ?>' class="btn btn-info btn-block">
+	<b>ชั้น 2</b><br>
+	(จำนวนโต๊ะว่าง : <?php echo $floor2_freetable; ?>)
+</a>
 <br><br><br>
 <center>
 <a href='<?php echo site_url('home/tablelist'); ?>' class="btn btn-success"><i class="fas fa-search"></i>&nbsp; ค้นหารายชื่อผู้จองโต๊ะ</a>
+<br><br><br><br><br>
+<h6>ในกรณีที่มีปัญหากรุณาติดต่อ แจ้งปัญหาได้ที่ LINE: @citkmutnb</h6>
 </center>
+
+
 </body>
 </html>

@@ -138,7 +138,6 @@
 		<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
 		<script src="<?php echo base_url('seatchart/jquery.seat-charts.js')?>"></script>
 		<?php 
-//print_r($tabinfo);
 
 foreach ($tabinfo as $row)
 		{
@@ -147,12 +146,13 @@ foreach ($tabinfo as $row)
 				     $('div[name=\"$row->id\"]').seatconfirm({});
                      </script>";
 			}
-			if ($row->status == 1) {
+			if ($row->status == 1 and $row->numday_pass == 0) {
 				echo "<script>
 				     $('div[name=\"$row->id\"]').seatwaitconfirm({});
                      </script>";
             }
-			if ($row->status == 0) {
+			if ($row->status == 0 or ($row->status == 1 and $row->numday_pass > 1)) {
+				
 				//echo $row->id;
 				echo "<script>
 				     $('div[name=\"$row->id\"]').seatavailable($row->price);
