@@ -93,7 +93,9 @@
 		 <!-- Modal -->
 		 <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 		 <div class="modal-dialog modal-dialog-centered" role="document">
-		  <div class="modal-content">
+		
+		 
+		 <div class="modal-content">
 		 	 <div class="modal-header">
 		 		 <h5 class="modal-title" id="exampleModalLongTitle">ข้อมูลผู้จอง</h5>
 		 		 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -101,25 +103,26 @@
 		 		 </button>
 		 	 </div>
 		 	 <div class="modal-body">
-		 		 <form>
+		<form action='<?php echo site_url('home/checkout'); ?>' method="POST">	
+		<input type="hidden" name="seats" id="seats">
 		 <div class="form-group">
 			<p></p>
-		  <label for="recipient-name" class="col-form-label">ชื่อ:</label>
-		  <input type="text" class="form-control" id="recipient-name">
-			<label for="recipient-name" class="col-form-label">นามสกุล:</label>
-			<input type="text" class="form-control" id="recipient-surename">
-			<label for="recipient-name" class="col-form-label">รหัสรุ่น:</label>
-			<input type="text" class="form-control" id="recipient-id">
+		  <label for="recipient-name" class="col-form-label">ชื่อ-นามสกุล:</label>
+		  <input type="text" class="form-control" id="recipient-name" name="name" required>
+			<label for="recipient-name" class="col-form-label">รุ่น (เช่น PET 06):</label>
+			<input type="text" class="form-control" id="recipient-id" name="groupname" required>
 			<label for="recipient-name" class="col-form-label">เบอร์โทร:</label>
-			<input type="text" class="form-control" id="recipient-phone">
-		 </div>
-		 </form>
+			<input type="text" class="form-control" id="recipient-phone" name="phone" required>
+			<label for="recipient-name" class="col-form-label">Email:</label>
+			<input type="text" class="form-control" id="recipient-surename" name="email" required>
+			</div>		 
 		 	 </div>
 		 	 <div class="modal-footer">
 		 		 <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
-		 		 <button type="button" class="btn btn-primary" id="submit">ยืนยันการจอง</button>
+		 		 <button  class="btn btn-primary" id="submit">ยืนยันการจอง</button>
 		 	 </div>
 		  </div>
+	</form>
 		 </div>
 		 </div>
 		 	<script>

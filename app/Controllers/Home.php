@@ -102,4 +102,14 @@ class Home extends BaseController
 		$data['tabinfo'] = $results;
 		return view('tablelist_view', $data);
 	}
+
+	public function checkout(){
+		$request = service('request');
+		$seats = $request->getVar('seats');
+		$name = $request->getVar('name');
+		$groupname = $request->getVar('groupname');
+		$phone = $request->getVar('phone');
+		$email = $request->getVar('email');
+
+	}
 }

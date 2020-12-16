@@ -12,6 +12,9 @@
     $(this).click(function(){
       $(this).css("opacity", "0.4");
       $(this).off('click');
+      old_seats = $('#seats').val();
+      new_seats = old_seats + ',' + $(this).text();
+      $('#seats').val(new_seats);
       appendtable($(this),pice);
    })
   }
