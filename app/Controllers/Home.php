@@ -106,10 +106,28 @@ class Home extends BaseController
 	public function checkout(){
 		$request = service('request');
 		$seats = $request->getVar('seats');
-		$name = $request->getVar('name');
-		$groupname = $request->getVar('groupname');
-		$phone = $request->getVar('phone');
-		$email = $request->getVar('email');
+		$seat = explode(",", $seats);
+		//Only extract data -> send to payment_view
+		$numseat = count($seat);
+		if($numseat > 1) {
+			$db = db_connect();
+			$name = $request->getVar('name');
+			$groupname = $request->getVar('groupname');
+			$phone = $request->getVar('phone');
+			$email = $request->getVar('email');
+
+			for($i = 1; $i < $numseat; $i++) {
+				//Check if seat is still available
+				$query = $db->query
+			}
+
+		}
+		echo "Seat =" . count($seat) . "<br>";
+
+
+		foreach($seat as $s) {
+			echo $s . "<BR>";
+		}
 
 	}
 }
