@@ -4,9 +4,18 @@
      $(this).off('click');
      $(this).css('background-color', '#f67279');
   }
-  $.fn.seatwaitconfirm = function (zone) {
-     $(this).off('click');
+  $.fn.seatwaitconfirm = function (name,groupname) {
      $(this).css('background-color', '#fcde60');
+     $(this).click(function(){
+        $('#name').val(name)
+        $('#name').attr('readonly', true);
+        $('#id').val(groupname)
+        $('#id').attr('readonly', true);
+        $(this).attr("data-toggle","modal");
+        $(this).attr("data-target","#ModalCenter");
+        $('#datauser').hide();
+        $('#user').show();
+   })
   }
   $.fn.seatavailable = function (pice) {
     $(this).click(function(){

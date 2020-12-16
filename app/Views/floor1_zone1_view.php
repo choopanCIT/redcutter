@@ -73,7 +73,7 @@
 		 <form class="card p-2" id="fixedElement">
 		 <div class="col-12">
 		 	<div class="row justify-content-around">
-		 	 <button type="button" class="col-8 col-sm-6 btn btn btn-success" id="checkout" data-toggle="modal">Checkout(<strong class="total">฿0</strong>)</button>
+		 	 <button type="button" class="col-8 col-sm-6 btn btn btn-success" id="checkout" data-toggle="modal" data-target="#ModalCenter">Checkout(<strong class="total">฿0</strong>)</button>
 		 	 <button type="button" class="col-4 col-sm-6 btn btn btn-warning" id="clear">Clear</button>
 		 	</div>
 		 </div>
@@ -102,22 +102,27 @@
 		 	 </div>
 		 	 <div class="modal-body">
 		 		 <form>
-		 <div class="form-group">
+		 <div class="form-group" id="datauser">
 			<p></p>
-		  <label for="recipient-name" class="col-form-label">ชื่อ:</label>
+		  <label for="recipient-name" class="col-form-label">ชื่อ-นามสกุล:</label>
 		  <input type="text" class="form-control" id="recipient-name">
-			<label for="recipient-name" class="col-form-label">นามสกุล:</label>
-			<input type="text" class="form-control" id="recipient-surename">
-			<label for="recipient-name" class="col-form-label">รหัสรุ่น:</label>
+			<label for="recipient-id" class="col-form-label">รหัสรุ่น:</label>
 			<input type="text" class="form-control" id="recipient-id">
-			<label for="recipient-name" class="col-form-label">เบอร์โทร:</label>
+			<label for="recipient-phone" class="col-form-label">เบอร์โทร:</label>
 			<input type="text" class="form-control" id="recipient-phone">
+		 </div>
+		 </form>
+		 <div class="form-group" id="user">
+			<p></p>
+		  <label for="recipient-name" class="col-form-label">ชื่อ-นามสกุล:</label>
+		  <input type="text" class="form-control" id="name">
+			<label for="recipient-id" class="col-form-label">รหัสรุ่น:</label>
+			<input type="text" class="form-control" id="id">
 		 </div>
 		 </form>
 		 	 </div>
 		 	 <div class="modal-footer">
 		 		 <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
-		 		 <button type="button" class="btn btn-primary" id="submit">ยืนยันการจอง</button>
 		 	 </div>
 		  </div>
 		 </div>
@@ -125,7 +130,10 @@
 		 	<script>
 		 	$(document).ready(function() {
 				 //$('div[id*="Zone"]').seatcheack("1");
-				$("#checkout").attr("data-target","#ModalCenter");
+				$("#checkout").click(function(){
+					$('#datauser').show();
+					$('#user').hide();
+				});
 		 		$('#clear').click(function(){
 		 			location.reload(true);
 		 		});
@@ -148,7 +156,7 @@ foreach ($tabinfo as $row)
 			}
 			if ($row->status == 1 and $row->numday_pass == 0) {
 				echo "<script>
-				     $('div[name=\"$row->id\"]').seatwaitconfirm({});
+				     $('div[name=\"$row->id\"]').seatwaitconfirm(\"$row->name\",\"$row->groupname\");
                      </script>";
             }
 			if ($row->status == 0 or ($row->status == 1 and $row->numday_pass > 1)) {
