@@ -56,7 +56,7 @@
                   $total_price += $seatprice[$i];
                 }                
             ?>
-            <tr><td colspan='4'><center>รวมยอดขำระ: <?php echo $total_price; ?> บาท</center></td></tr>
+            <tr><td colspan='2'><center>รวมยอดขำระ: <?php echo $total_price; ?> บาท</center></td></tr>
         </tbody>
     </table>
     
