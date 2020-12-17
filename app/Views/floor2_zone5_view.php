@@ -59,7 +59,7 @@
  		 </div>
  		 </div>
 		 <div class="row justify-content-center">
-		 <div class="col-8 col-sm-6" id="detail">
+		 <div class="col-10 col-sm-10" id="detail">
 			 <div class="row justify-content-center">
 			 <div class="col-1" id="Zonegreen"></div><span>&nbsp ว่าง&nbsp</span>
 			 <div class="col-1" id="Zoneyellow"></div><span>&nbsp จอง&nbsp</span>
@@ -151,5 +151,6 @@ foreach ($tabinfo as $row)
         	//echo $row->floor;
         }
 ?>
+<br>
 	</body>
 </html>

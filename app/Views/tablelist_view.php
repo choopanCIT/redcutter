@@ -60,6 +60,7 @@ $(document).ready(function() {
         </tbody>
     </table>
 </center>
+<br>
 </div>
 </body>
 </html>

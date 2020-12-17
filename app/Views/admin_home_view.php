@@ -43,7 +43,7 @@ $(document).ready(function() {
 
     <center>
     <h3>รายการโต๊ะที่รอหลักฐานการชำระเงิน</h3>
-    <table id="example1" class="table table-striped table-bordered dt-responsive nowrap" style="width:90%">
+    <table id="example1" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
         <thead>
             <tr>
                 <th>#โต๊ะ</th>
@@ -79,7 +79,7 @@ $(document).ready(function() {
 
                 <br><br><br>
     <h3>รายการโต๊ะที่ชำระเงินแล้ว</h3>
-    <table id="example2" class="table table-striped table-bordered dt-responsive nowrap" style="width:90%">
+    <table id="example2" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
         <thead>
             <tr>
                 <th>#โต๊ะ</th>

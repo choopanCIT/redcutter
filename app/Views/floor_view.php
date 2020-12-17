@@ -130,7 +130,7 @@
 ชั้น 2</center></td>
 
 </tr></table>
-&nbsp;&nbsp;&nbsp;;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
 <!-- The Modal -->
 <div id="myModal" class="modal">
   <span class="close">&times;</span>

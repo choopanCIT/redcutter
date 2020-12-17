@@ -15,7 +15,7 @@
 
 	<body>
 	<div class="jumbotron text-center">
-<h1>The Red Cutter Day</h1>
+<h2>The Red Cutter Day</h2>
   <h5>The way walk you home</h5>
   <a href="<?php echo site_url('home'); ?>" class="btn btn-primary">กลับหน้าหลัก</a></p>
 </div>
@@ -62,5 +62,6 @@
 		 </div>
 	</div>
 		<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<br>
 	</body>
 </html>
