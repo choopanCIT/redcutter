@@ -41,7 +41,7 @@ class Admin extends BaseController
 	public function delete_status($tablenumber=null) {
 		$session = session();
 		if($session->get('username') != 'admin') {
-			die("No permission");
+			return redirect()->to(site_url('admin/index'));
 		}
 		if ($tablenumber != null) {
 			$db = db_connect();
@@ -55,7 +55,7 @@ class Admin extends BaseController
 	public function changestatus($tablenumber=null) {
 		$session = session();
 		if($session->get('username') != 'admin') {
-			die("No permission");
+			return redirect()->to(site_url('admin/index'));
 		}
 		if ($tablenumber != null) {
 			$db = db_connect();
@@ -67,10 +67,12 @@ class Admin extends BaseController
 		}
 	}
 
-
-	//TODO : Add condition status = 1 and now()-resv_time < 24h
 	public function home() {
 			// Get summary
+			$session = session();
+		if($session->get('username') != 'admin') {
+			return redirect()->to(site_url('admin/index'));
+		}
 			$data = array();
 			$data['free'] = 0;
 			$data['reserved'] = 0;
@@ -78,12 +80,12 @@ class Admin extends BaseController
 			$data['earn'] = 0;
 
 			$db = db_connect();
-			$query = $db->query("SELECT * FROM tableinfo WHERE status = 1 and DATEDIFF(NOW(), resvtime) = 0");
+			$query = $db->query("SELECT * FROM tableinfo WHERE status = 1 and TIMESTAMPDIFF(minute, resvtime, NOW()) <= 1440");
 			$results = $query->getResult();
 			$data['reserved_list'] = $results;
 			$realreserved = count($data['reserved_list']);
 
-			$query = $db->query("SELECT * FROM tableinfo WHERE status = 1 and DATEDIFF(NOW(), resvtime) > 0");
+			$query = $db->query("SELECT * FROM tableinfo WHERE status = 1 and TIMESTAMPDIFF(minute, resvtime, NOW()) > 1440");
 			$results = $query->getResult();			
 			$overduereserved = count($results);
 			

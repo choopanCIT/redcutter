@@ -40,12 +40,17 @@
   }
   $.fn.seatavailable = function (pice) {
     $(this).click(function(){
-      $(this).css("opacity", "0.4");
-      $(this).off('click');
-      old_seats = $('#seats').val();
-      new_seats = old_seats + ',' + $(this).text();
-      $('#seats').val(new_seats);
-      appendtable($(this),pice);
+      var old_seats = $('#seats').val();
+      var numseats = old_seats.split(",");
+      if(numseats.length > 2) {
+          alert("กรุณาจองโต๊ะมากสุด 2 โต๊ะต่อรอบ");
+      } else {
+        $(this).css("opacity", "0.4");
+        $(this).off('click');
+        var new_seats = old_seats + ',' + $(this).text();
+        $('#seats').val(new_seats);
+        appendtable($(this),pice);
+      }
    })
   }
 	$.fn.getParameter = function (setup) {

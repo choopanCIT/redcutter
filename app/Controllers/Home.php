@@ -5,7 +5,7 @@ class Home extends BaseController
 	public function index()
 	{
 		$db = db_connect();
-		$query = $db->query("SELECT floor, count(*) as freetable FROM tableinfo WHERE status = 0 or (status = 1 and DATEDIFF(NOW(), resvtime) > 0) GROUP BY floor");
+		$query = $db->query("SELECT floor, count(*) as freetable FROM tableinfo WHERE status = 0 or (status = 1 and TIMESTAMPDIFF(minute, resvtime, NOW()) > 1440) GROUP BY floor");
 		$results = $query->getResult();
 		
 		$data = array();
@@ -23,7 +23,7 @@ class Home extends BaseController
 	public function floor1()
 	{
 		$db = db_connect();
-		$query = $db->query("SELECT zone, count(*) as freetable FROM tableinfo WHERE floor = 1 and (status = 0 or (status = 1 and DATEDIFF(NOW(), resvtime) > 0)) GROUP BY zone");
+		$query = $db->query("SELECT zone, count(*) as freetable FROM tableinfo WHERE floor = 1 and (status = 0 or (status = 1 and TIMESTAMPDIFF(minute, resvtime, NOW()) > 1440)) GROUP BY zone");
 		$results = $query->getResult();
 		$data = array();
 		
@@ -54,7 +54,7 @@ class Home extends BaseController
 	public function floor2()
 	{
 		$db = db_connect();
-		$query = $db->query("SELECT zone, count(*) as freetable FROM tableinfo WHERE floor = 2 and (status = 0 or (status = 1 and DATEDIFF(NOW(), resvtime) > 0)) GROUP BY zone");
+		$query = $db->query("SELECT zone, count(*) as freetable FROM tableinfo WHERE floor = 2 and (status = 0 or (status = 1 and TIMESTAMPDIFF(minute, resvtime, NOW()) > 0)) GROUP BY zone");
 		$results = $query->getResult();
 		
 		$data = array();
@@ -80,7 +80,7 @@ class Home extends BaseController
 
 	public function tablelayout($floor=1, $zone=1) {
 		$db = db_connect();
-		$query = $db->query("SELECT *, DATEDIFF(NOW(), resvtime) as numday_pass FROM tableinfo WHERE zone=$zone and floor=$floor");
+		$query = $db->query("SELECT *, TIMESTAMPDIFF(minute, resvtime, NOW()) as numday_pass FROM tableinfo WHERE zone=$zone and floor=$floor");
 		$results = $query->getResult();
 		$data = array();
 		$data['tabinfo'] = $results;
@@ -178,9 +178,9 @@ class Home extends BaseController
 		$numseat = count($data['seats']);
 		//Check
 		for($i = 0; $i < $numseat; $i++) {
-			$query = $db->query("SELECT status, DATEDIFF(NOW(), resvtime) as daypass from tableinfo WHERE id = " . $data['seats'][$i]);
+			$query = $db->query("SELECT status, TIMESTAMPDIFF(minute, resvtime, NOW()) as daypass from tableinfo WHERE id = " . $data['seats'][$i]);
 			$results = $query->getResult();	
-			if(!($results[0]->status == 0 or ($results[0]->status == 1 and $results[0]->daypass > 0))) {
+			if(!($results[0]->status == 0 or ($results[0]->status == 1 and $results[0]->daypass > 1440))) {
 				return view("confirm_error_view");
 			}
 		}

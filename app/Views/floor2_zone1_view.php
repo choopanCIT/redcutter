@@ -2,7 +2,7 @@
 
 <html>
 	<head>
-		<title>JSC Demo</title>
+		<title>CIT :: The Red Cutter Day</title>
 		<meta charset="UTF-8">
 		<link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url('seatchart/style.css')?>">
@@ -15,7 +15,7 @@
 
 	<body>
 	<div class="jumbotron text-center">
-	<h2>The red cutter day</h2>
+	<h2>The Red Cutter Day</h2>
 	<p>The way walk you home.</p>
 	<a href="<?php echo site_url('home'); ?>" class="btn btn-primary">กลับหน้าหลัก</a></p>
 	</div>

@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 	<head>
-		<title>JSC Demo</title>
+		<title>CIT :: The Red Cutter Day</title>
 		<meta charset="UTF-8">
 		<link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url('seatchart/style.css')?>">
