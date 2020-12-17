@@ -122,7 +122,7 @@
 			<label for="recipient-name" class="col-form-label">เบอร์โทร:</label>
 			<input type="text" class="form-control" id="recipient-phone" name="phone" required>
 			<label for="recipient-name" class="col-form-label">Email:</label>
-			<input type="text" class="form-control" id="recipient-surename" name="email" required>
+			<input type="email" class="form-control" id="recipient-surename" name="email" required>
 			</div>
 			<div class="form-group" id="user">
 			 <p></p>
@@ -163,18 +163,19 @@ foreach ($tabinfo as $row)
 				     $('div[name=\"$row->id\"]').seatconfirm(\"$row->name\",\"$row->groupname\");
                      </script>";
 			}
-			if ($row->status == 1 and $row->numday_pass == 0) {
+			if ($row->status == 1 and $row->numday_pass <= 1440) {
 				echo "<script>
 				     $('div[name=\"$row->id\"]').seatwaitconfirm(\"$row->name\",\"$row->groupname\");
                      </script>";
             }
-			if ($row->status == 0 or ($row->status == 1 and $row->numday_pass > 1)) {
+			if ($row->status == 0 or ($row->status == 1 and $row->numday_pass > 1440)) {
 
 				//echo $row->id;
 				echo "<script>
 				     $('div[name=\"$row->id\"]').seatavailable($row->price);
                      </script>";
             }
+
         	//echo $row->id;
         	//echo $row->zone;
         	//echo $row->floor;

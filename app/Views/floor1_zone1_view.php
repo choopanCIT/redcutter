@@ -118,7 +118,7 @@
 			<label for="recipient-name" class="col-form-label">เบอร์โทร:</label>
 			<input type="text" class="form-control" id="recipient-phone" name="phone" required>
 			<label for="recipient-name" class="col-form-label">Email:</label>
-			<input type="text" class="form-control" id="recipient-surename" name="email" required>
+			<input type="email" class="form-control" id="recipient-surename" name="email" required>
 			</div>
 			<div class="form-group" id="user">
 			 <p></p>
