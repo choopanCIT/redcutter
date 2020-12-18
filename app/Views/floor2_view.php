@@ -44,7 +44,7 @@
 				<div class="w-100"></div>
 			<div class="col-4 col-sm-4">
 				<div class="row" style="white-space: pre-wrap;">
-					<div class="col d-flex justify-content-center justify-content-md-center" id="Zone4" onclick="location.href='<?php echo site_url('home/tablelayout/2/6'); ?>';">ZONE6<br>ว่าง: <?php echo $zone6_freetable; ?></div>
+					<div class="col col-sm d-flex justify-content-center justify-content-sm-center" id="Zone4" onclick="location.href='<?php echo site_url('home/tablelayout/2/6'); ?>';">ZONE6<br>ว่าง: <?php echo $zone6_freetable; ?><br>ห้องกระจกเสียงเบา</div>
 				</div>
 		</div>
 		 </div>

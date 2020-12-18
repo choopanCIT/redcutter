@@ -26,7 +26,7 @@
 
 			<div class="col-7" id="front-indicator">STAGE</div>
 			<div class="row justify-content-center">
-		    <div class="col-1 d-flex justify-content-center justify-content-sm-center" id="Zone2" onclick="location.href='<?php echo site_url('home/tablelayout/1/1'); ?>';">ZONE1<br>ว่าง: <?php echo $zone1_freetable; ?></div>
+		    <div class="col-1 d-flex justify-content-center justify-content-sm-center" id="Zone2" onclick="location.href='<?php echo site_url('home/tablelayout/1/1'); ?>';">ZONE1<br>ว่าง: <?php echo $zone1_freetable; ?><br>ห้องกระจกเสียงเบา</div>
 			<div class="col-7">
 				<div class="row justify-content-around">
 					<div class="col-2 col-sm d-flex justify-content-center justify-content-md-center" id="Zone1" onclick="location.href='<?php echo site_url('home/tablelayout/1/2'); ?>';">ZONE2<br>ว่าง: <?php echo $zone2_freetable; ?></div>
@@ -37,7 +37,7 @@
 					<div class="col d-flex justify-content-center justify-content-md-center" id="Zone1" onclick="location.href='<?php echo site_url('home/tablelayout/1/5'); ?>';">ZONE5<br>ว่าง: <?php echo $zone5_freetable; ?></div>
 				</div>
 		</div>
-				<div class="col-1 d-flex justify-content-center justify-content-sm-center" id="Zone2" onclick="location.href='<?php echo site_url('home/tablelayout/1/6'); ?>';">ZONE6<br>ว่าง: <?php echo $zone6_freetable; ?></div>
+				<div class="col-1 d-flex justify-content-center justify-content-sm-center" id="Zone2" onclick="location.href='<?php echo site_url('home/tablelayout/1/6'); ?>';">ZONE6<br>ว่าง: <?php echo $zone6_freetable; ?><br>ห้องกระจกเสียงเบา</div>
 				<div class="w-100"></div>
 				<div class="col-1 d-flex justify-content-center justify-content-sm-center" id="vertical-text">ENTRANCE</div>
 			<div class="col-7">
