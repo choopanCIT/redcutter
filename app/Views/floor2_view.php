@@ -25,7 +25,7 @@
 <h6> จองโต๊ะ (ชั้น 2) : กรุณาเลือก Zone ที่ต้องการจองโต๊ะ</h6>
 </center><br>
 
-			<div class="col-9 col-sm-8" id="front-indicator">STAGE</div>
+			<div class="col-5 col-sm-4" id="front-indicator">STAGE</div>
 			<div class="row justify-content-center justify-content-sm-center">
 			<div class="col-10 col-sm-8">
 			<div class="row justify-content-center justify-content-sm-center">
@@ -34,6 +34,7 @@
 				<div class="col-3 col-sm-3">
 					<div class="row justify-content-center">
 				<div class="col-12 col-sm d-flex justify-content-center justify-content-sm-center" id="front-indicator2">2 FLOOR</div>
+				<div class="col col-sm d-flex justify-content-center justify-content-md-center" id="Zone6" onclick="location.href='<?php echo site_url('home/tablelayout/2/5'); ?>';">ZONE5<br>ว่าง: <?php echo $zone5_freetable; ?></div>
 			</div>
 		</div>
 		<div class="col-1 col-sm-1 d-flex justify-content-center justify-content-sm-center" id="Zone6" onclick="location.href='<?php echo site_url('home/tablelayout/2/3'); ?>';">ZONE3<br>ว่าง: <?php echo $zone3_freetable; ?></div>
@@ -42,9 +43,6 @@
 		</div>
 				<div class="w-100"></div>
 			<div class="col-4 col-sm-4">
-				<div class="row">
-					<div class="col col-sm d-flex justify-content-center justify-content-md-center" id="Zone6" onclick="location.href='<?php echo site_url('home/tablelayout/2/5'); ?>';">ZONE5<br>ว่าง: <?php echo $zone5_freetable; ?></div>
-				</div>
 				<div class="row" style="white-space: pre-wrap;">
 					<div class="col d-flex justify-content-center justify-content-md-center" id="Zone4" onclick="location.href='<?php echo site_url('home/tablelayout/2/6'); ?>';">ZONE6<br>ว่าง: <?php echo $zone6_freetable; ?></div>
 				</div>
